@@ -20,6 +20,13 @@ var app = express();
  next();
  }); 
 
+//cross-origin request-can make requests from this server via another server (PhoneGap)
+ app.use(function(req, res, next) {
+ res.header("Access-Control-Allow-Origin", "*");
+ res.header("Access-Control-Allow-Headers", "X-Requested-With");
+ next();
+ }); 
+
 //can request any file on the server e.g. in sub-directories and different directorys 
 // serve static files - e.g. html, css
 // this should always be the last line in the server file
