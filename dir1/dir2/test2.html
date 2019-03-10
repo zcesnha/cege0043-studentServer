@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Test HTML Location Functionality</title>
+<script>
+function getLocation() {
+alert('getting location');
+navigator.geolocation.getCurrentPosition(getPosition);
+}
+function getPosition(position) {
+document.getElementById('showLocation').innerHTML = "Latitude: " + position.coords.latitude +
+"<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</head>
+<body>
+<b>This code will display your current location</b>
+<div id='showLocation'>Location will be displayed here</div>
+<button id='getLocation' onclick='getLocation()'>Click Me to Get Your Location</button> 
+<!-- chooses which html file is used for the div content  -->
+<p>Type the html file name here - note you need to include .html</p>
+<input type="text" name="test1.html" id="filename" size=50>
+
+</body>

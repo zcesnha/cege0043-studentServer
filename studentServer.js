@@ -20,11 +20,8 @@ var app = express();
  next();
  }); 
 
-//can call any file within same directory 
-app.get('/:fileName', function (req, res) {
- // run some server-side code
- var fileName = req.params.fileName;
- console.log(fileName + ' requested');
- // note that __dirname gives the path to the studentServer.js file
- res.sendFile(__dirname + '/'+ fileName);
-}); 
+//can request any file on the server e.g. in sub-directories and different directorys 
+// serve static files - e.g. html, css
+// this should always be the last line in the server file
+app.use(express.static(__dirname)); 
+
