@@ -11,8 +11,8 @@ var app = express();
  app.get('/',function (req,res) {
  res.send("hello world from the HTTP server");
  });
-  
- // adding functionality to log the requests
+
+ // adding functionality to log the requests of files
  app.use(function (req, res, next) {
  var filename = path.basename(req.url);
  var extension = path.extname(filename);
@@ -20,10 +20,11 @@ var app = express();
  next();
  }); 
 
-// gets file requested 
-app.get('/test.html', function (req, res) {
+//can call any file within same directory 
+app.get('/:fileName', function (req, res) {
  // run some server-side code
- console.log('test.html requested');
+ var fileName = req.params.fileName;
+ console.log(fileName + ' requested');
  // note that __dirname gives the path to the studentServer.js file
- res.sendFile(__dirname + '/test.html');
+ res.sendFile(__dirname + '/'+ fileName);
 }); 
