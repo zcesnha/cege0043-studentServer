@@ -70,8 +70,7 @@ pool.connect(function(err,client,done) {
 //Connects to database and sends data to formData table (i.e the data from our HTML form in material design lite app)
 app.post('/uploadData',function(req,res){
  // note that we are using POST here as we are uploading data
- // so the parameters form part of the BODY of the request rather than the
-RESTful API
+ // so the parameters form part of the BODY of the request rather than the RESTful API
  console.dir(req.body);
  pool.connect(function(err,client,done) {
  if(err){
@@ -82,7 +81,7 @@ var name = req.body.name;
 var surname = req.body.surname;
 var module = req.body.module;
 var portnum = req.body.port_id;
- var querystring = "INSERT into formdata (name,surname,module, port_id) values ($1,$2,$3,$4) ";
+ var querystring = "INSERT into formdata (name,surname,module, port_id)values ($1,$2,$3,$4) ";
  console.log(querystring);
  client.query( querystring,[name,surname,module,
 portnum],function(err,result) {
@@ -95,6 +94,7 @@ portnum],function(err,result) {
  });
  });
 }); 
+
 
 //can request any file on the server e.g. in sub-directories and different directorys 
 // serve static files - e.g. html, css
