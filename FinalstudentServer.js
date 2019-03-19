@@ -124,7 +124,7 @@ var querystring = querystring + geometrystring + ")";
 
 });
 
-
+//Adding another get function for getFormData
 app.get('/getFormData/:port_id', function (req,res) {
      pool.connect(function(err,client,done) {
        if(err){
